@@ -1,4 +1,4 @@
-# Edu+ 📚🏫
+# Edu+ Backend🧑‍💻📚🏫
 
 Batch - Y3 S2
 
