@@ -5,7 +5,6 @@ Batch - Y3 S2
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/user/repository/CI?style=flat-square)
 ![GitHub last commit](https://img.shields.io/github/last-commit/user/repository?style=flat-square)
 ![GitHub](https://img.shields.io/github/license/user/repository?style=flat-square)
-![GitHub Frontend](https://github.com/IT21277054/eduplus.web)
 
 ---
 
