@@ -37,7 +37,7 @@ public class AuthenticationFilter extends AbstractGatewayFilterFactory<Authentic
 //                    restTemplate.getForObject("http://auth-service/validate?token"+authHeader,String.class);
                     jwtUtil.validateToken(authHeader);
                 }catch(Exception e){
-                    e.printStackTrace();
+                    throw new RuntimeException("not a valid token");
                 }
             }
             return chain.filter(exchange);
