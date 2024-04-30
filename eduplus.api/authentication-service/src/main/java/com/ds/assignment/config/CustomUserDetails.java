@@ -8,11 +8,11 @@ import java.util.Collection;
 
 public class CustomUserDetails implements UserDetails {
 
-    private String userName;
+    private String email;
     private String password;
 
     public CustomUserDetails(User user) {
-        this.userName = user.getName();
+        this.email = user.getEmail();
         this.password = user.getPassword();
     }
 
@@ -28,7 +28,7 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public String getUsername() {
-        return userName;
+        return email;
     }
 
     @Override

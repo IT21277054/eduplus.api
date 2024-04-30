@@ -1,6 +1,7 @@
 package com.ds.assignment.service;
 
 import com.ds.assignment.model.User;
+import com.ds.assignment.model.UserRole;
 import com.ds.assignment.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -23,8 +24,8 @@ public class AuthService {
         return "User added Successfully";
     }
 
-    public String generateToken(String username) {
-        return jwtService.generateToken(username);
+    public String generateToken(String email, String role) {
+        return jwtService.generateToken(email,role);
     }
 
     public void validateToken(String token) {
