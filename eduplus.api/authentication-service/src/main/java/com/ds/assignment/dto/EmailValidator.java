@@ -1,0 +1,15 @@
+package com.ds.assignment.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+public class EmailValidator {
+    String email;
+    String emailToken;
+}
