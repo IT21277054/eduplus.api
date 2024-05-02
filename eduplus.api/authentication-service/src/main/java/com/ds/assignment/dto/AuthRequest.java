@@ -15,7 +15,7 @@ public class AuthRequest {
 
     @NotNull
     @NotEmpty
-    private String userName;
+    private String email;
     @NotNull
     @NotEmpty
     @Email(message = "Invalid email address")

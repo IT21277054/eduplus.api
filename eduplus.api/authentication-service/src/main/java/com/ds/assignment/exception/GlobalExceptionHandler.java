@@ -15,6 +15,9 @@ public class GlobalExceptionHandler {
         }
         if("not a valid token".equals(ex.getMessage())){
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Not a valid token");
+        }
+        if("Invalid access".equals(ex.getMessage())){
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Invalid access details");
         }else {
             // For other runtime exceptions, return 500 Internal Server Error
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal Server Error");
