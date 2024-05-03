@@ -33,7 +33,6 @@ public class AuthController {
         Authentication authenticate = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authRequest.getEmail(),authRequest.getPassword()));
         if(authenticate.isAuthenticated()){
             String email = authRequest.getEmail();
-            System.out.println("here is the "+email);
             Optional<String> optionalUserRole = userRepository.findRoleByEmail(email);
             String roleString = optionalUserRole.map(userRole -> {
                 try {
@@ -44,7 +43,6 @@ public class AuthController {
                     return null;
                 }
             }).orElse(null);
-            System.out.println("here is "+roleString);
             return authService.generateToken(email,roleString);
         }else{
             throw new RuntimeException("Invalid access");

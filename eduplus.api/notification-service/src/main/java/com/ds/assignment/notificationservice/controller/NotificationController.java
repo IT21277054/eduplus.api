@@ -4,6 +4,7 @@ import com.ds.assignment.notificationservice.dto.EmailRequest;
 import com.ds.assignment.notificationservice.dto.EmailValidateRequest;
 import com.ds.assignment.notificationservice.dto.OtpVerifyRequest;
 import com.ds.assignment.notificationservice.dto.SmsRequest;
+import com.ds.assignment.notificationservice.exception.NotificationException;
 import com.ds.assignment.notificationservice.service.NotificationService;
 import com.ds.assignment.notificationservice.service.impl.OtpService;
 import jakarta.validation.Valid;
@@ -36,7 +37,7 @@ public class NotificationController {
             notificationService.sendEmail(emailRequest);
             return "Email sent successfully";
         } catch (MailException e) {
-            return "Failed to send email: " + e.getMessage();
+            throw new NotificationException("Failed to send email: " + e.getMessage());
         }
     }
 

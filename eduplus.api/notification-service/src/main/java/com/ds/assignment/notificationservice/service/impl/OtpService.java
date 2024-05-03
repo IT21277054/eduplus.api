@@ -1,6 +1,7 @@
 package com.ds.assignment.notificationservice.service.impl;
 
 import com.ds.assignment.notificationservice.dto.EmailRequest;
+import com.ds.assignment.notificationservice.exception.NotificationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
@@ -28,14 +29,14 @@ public class OtpService {
         // Check rate limiting
         String rateLimitKey = RATE_LIMIT_PREFIX + emailRequest.getTo();
         if (!isRateLimited(rateLimitKey)) {
-            return "Rate limit exceeded. Please try again later.";
+            throw new NotificationException("Rate limit exceeded. Please try again later");
         }
 
         // Generate OTP
         String otpKey = OTP_PREFIX + emailRequest.getTo();
         String existingOTP = redisTemplate.opsForValue().get(otpKey);
         if (existingOTP != null) {
-            return "An OTP has already been generated for this number. Please check your Email.";
+            throw new NotificationException("An OTP has already been generated for this number. Please check your Email.");
         }
 
         String otpCode = generateRandomOTP(6);
@@ -61,7 +62,7 @@ public class OtpService {
             return emailAuthKey;
         }
 
-        return "OTP Verification failed ";
+        throw new NotificationException("OTP Verification failed");
     }
 
     public String verifyEmailToken(String email, String emailKey){
@@ -69,12 +70,12 @@ public class OtpService {
         String token = redisTemplate.opsForValue().get(emailTOkenkey);
 
         if(token == null){
-            throw new Error("Email Verification Failed");
+            throw new NotificationException("Email Verification Failed");
         }
         if(token.equals(emailKey) && emailKey.length()>10 ){
             return email;
         }
-        throw new Error("Email Verification Failed");
+        throw new NotificationException("Email Verification Failed");
     }
 
 
