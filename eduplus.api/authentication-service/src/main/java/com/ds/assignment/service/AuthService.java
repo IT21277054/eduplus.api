@@ -1,5 +1,6 @@
 package com.ds.assignment.service;
 
+import com.ds.assignment.exception.UserExistsException;
 import com.ds.assignment.model.User;
 import com.ds.assignment.model.UserRole;
 import com.ds.assignment.repository.UserRepository;
@@ -30,22 +31,20 @@ public class AuthService {
 
     public String saveUser(User user) {
 
-        System.out.println("here in auth service for register");
         String url = "http://localhost:8081/api/notification/validateEmail";
 
         Optional<User> existUser = userRepository.findByEmail(user.getEmail());
-
+        System.out.println("here in auth service for register");
         if(existUser.isPresent()){
-            throw new Error("User Exist for "+user.getEmail());
+            throw new UserExistsException("User Exist for "+user.getEmail());
         }
-
+        System.out.println("here after existuser");
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         Map<String, String> requestBody = Map.of("email", user.getEmail(), "emailToken", user.getEmailToken());
         HttpEntity<Map<String, String>> requestEntity = new HttpEntity<>(requestBody, headers);
 
         System.out.println("here in after http");
-        // Make the POST request to validate email
         ResponseEntity<String> responseEntity = restTemplate.postForEntity(url, requestEntity, String.class);
         System.out.println("here in POST request to validate email");
         if (responseEntity.getStatusCode().is2xxSuccessful()) {
@@ -53,7 +52,7 @@ public class AuthService {
             userRepository.save(user);
             return "User added Successfully";
         } else {
-            throw new Error("User registration failed");
+            throw new RuntimeException("User registration failed");
         }
     }
 

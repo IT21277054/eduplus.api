@@ -3,6 +3,7 @@ package com.ds.assignment.notificationservice.service.impl;
 import com.ds.assignment.notificationservice.config.TwilioConfig;
 import com.ds.assignment.notificationservice.dto.EmailRequest;
 import com.ds.assignment.notificationservice.dto.SmsRequest;
+import com.ds.assignment.notificationservice.exception.NotificationException;
 import com.ds.assignment.notificationservice.service.NotificationService;
 import com.twilio.exception.ApiException;
 import com.twilio.rest.api.v2010.account.Message;
@@ -36,14 +37,10 @@ public class NotificationServiceImpl implements NotificationService {
             if (message != null && message.getSid() != null) {
                 return "message sent";
             } else {
-                return "message sending failed";
+                throw new NotificationException("Failed to send sms: ");
             }
         } catch (ApiException e) {
-            e.printStackTrace();
-            return "message sending failed: " + e.getMessage();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "message sending failed: " + e.getMessage();
+            throw new NotificationException("Failed to send sms: " + e.getMessage());
         }
     }
 
@@ -58,7 +55,7 @@ public class NotificationServiceImpl implements NotificationService {
             javaMailSender.send(message);
             System.out.println("Email sent successfully.");
         } catch (MailException e) {
-            System.err.println("Failed to send email: " + e.getMessage());
+            throw new NotificationException("Failed to send email: " + e.getMessage());
         }
     }
 
