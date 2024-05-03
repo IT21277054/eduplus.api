@@ -43,6 +43,7 @@ public class AuthenticationFilter extends AbstractGatewayFilterFactory<Authentic
                             .mutate()
                             .header("loggedInUserEmail", jwtUtil.extractEmail(authHeader))
                              .header("loggedInUserRole", jwtUtil.extractRole(authHeader))
+                             .header("loggedInUserId", jwtUtil.extractUserId(authHeader))
                             .build();
 
                 }catch(Exception e){

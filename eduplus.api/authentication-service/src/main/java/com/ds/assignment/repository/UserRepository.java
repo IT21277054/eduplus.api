@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.repository.Query;
 import java.util.Optional;
 
 public interface UserRepository extends MongoRepository<User,Integer> {
-    @Query(value = "{'email' : ?0}", fields = "{ 'role': 1, '_id': 0}")
+    @Query(value = "{'email' : ?0}", fields = "{ 'role': 1}")
     Optional<String> findRoleByEmail(String email);
 
     Optional<User> findByEmail(String email);

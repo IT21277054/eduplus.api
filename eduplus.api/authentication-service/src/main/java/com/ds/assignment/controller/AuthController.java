@@ -33,17 +33,22 @@ public class AuthController {
         Authentication authenticate = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authRequest.getEmail(),authRequest.getPassword()));
         if(authenticate.isAuthenticated()){
             String email = authRequest.getEmail();
-            Optional<String> optionalUserRole = userRepository.findRoleByEmail(email);
-            String roleString = optionalUserRole.map(userRole -> {
+            Optional<String> optionalUser = userRepository.findRoleByEmail(email);
+            System.out.println(optionalUser);
+            if (optionalUser.isPresent()) {
+                String userJson = optionalUser.get();
                 try {
-                    JSONObject jsonObject = new JSONObject(userRole);
-                    return jsonObject.getString("role");
+                    JSONObject jsonObject = new JSONObject(userJson);
+                    String id = jsonObject.getString("_id");
+                    String role = jsonObject.getString("role");
+                    return authService.generateToken(id, email, role);
                 } catch (JSONException e) {
                     e.printStackTrace();
-                    return null;
+                    throw new RuntimeException("Error parsing user data");
                 }
-            }).orElse(null);
-            return authService.generateToken(email,roleString);
+            } else {
+                throw new RuntimeException("User not found");
+            }
         }else{
             throw new RuntimeException("Invalid access");
         }
