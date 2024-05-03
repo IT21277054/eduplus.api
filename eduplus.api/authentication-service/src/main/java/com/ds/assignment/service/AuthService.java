@@ -2,7 +2,9 @@ package com.ds.assignment.service;
 
 import com.ds.assignment.exception.UserExistsException;
 import com.ds.assignment.model.User;
+import com.ds.assignment.model.UserProfile;
 import com.ds.assignment.model.UserRole;
+import com.ds.assignment.repository.UserProfileRepository;
 import com.ds.assignment.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
@@ -20,6 +22,8 @@ import java.util.Optional;
 public class AuthService {
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    UserProfileRepository userProfileRepository;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -49,15 +53,24 @@ public class AuthService {
         System.out.println("here in POST request to validate email");
         if (responseEntity.getStatusCode().is2xxSuccessful()) {
             user.setPassword(passwordEncoder.encode(user.getPassword()));
-            userRepository.save(user);
+            User savedUser =userRepository.save(user);
+            if(user.getRole().equals(UserRole.LEARNER)){
+                UserProfile userProfile = new UserProfile();
+                userProfile.setAccount_id(savedUser.getId());
+                userProfile.setName(user.getName());
+                userProfile.setEmail(user.getEmail());
+                userProfile.setPhoneNumber((user.getPhoneNumber()));
+
+                userProfileRepository.save(userProfile);
+            }
             return "User added Successfully";
         } else {
             throw new RuntimeException("User registration failed");
         }
     }
 
-    public String generateToken(String email, String role) {
-        return jwtService.generateToken(email,role);
+    public String generateToken(String id,String email, String role) {
+        return jwtService.generateToken(id,email,role);
     }
 
     public void validateToken(String token) {

@@ -34,6 +34,10 @@ public class JwtUtil {
         return extractClaim(token, claims -> claims.get("role", String.class));
     }
 
+    public String extractUserId(String token) {
+        return extractClaim(token, claims -> claims.get("id", String.class));
+    }
+
     private <T> T extractClaim(String token, Function<Claims,T> claimResolver) {
         final Claims  claims = extractAllClaims(token);
         return claimResolver.apply(claims);

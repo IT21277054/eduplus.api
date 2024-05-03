@@ -22,10 +22,11 @@ public class JwtService {
     }
 
 
-    public String generateToken(String email, String role) {
+    public String generateToken(String id,String email, String role) {
         Map<String, Object> claims = new HashMap<>();
         claims.put("email", email);
         claims.put("role", role);
+        claims.put("id", id);
         return createToken(claims, email);
     }
 
