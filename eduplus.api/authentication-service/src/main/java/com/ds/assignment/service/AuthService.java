@@ -35,7 +35,7 @@ public class AuthService {
 
     public String saveUser(User user) {
 
-        String url = "http://localhost:8081/api/notification/validateEmail";
+        String url = "http://localhost:8085/api/notification/validateEmail";
 
         Optional<User> existUser = userRepository.findByEmail(user.getEmail());
         System.out.println("here in auth service for register");

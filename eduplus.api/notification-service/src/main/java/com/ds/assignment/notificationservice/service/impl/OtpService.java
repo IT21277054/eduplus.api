@@ -31,6 +31,7 @@ public class OtpService {
         if (!isRateLimited(rateLimitKey)) {
             throw new NotificationException("Rate limit exceeded. Please try again later");
         }
+        System.out.println("Here after rateLimit");
 
         // Generate OTP
         String otpKey = OTP_PREFIX + emailRequest.getTo();
