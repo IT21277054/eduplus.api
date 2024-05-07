@@ -7,4 +7,5 @@ import org.springframework.stereotype.Service;
 public interface NotificationService {
    String sendSms(SmsRequest smsRequest);
    void sendEmail(EmailRequest emailRequest);
+
 }

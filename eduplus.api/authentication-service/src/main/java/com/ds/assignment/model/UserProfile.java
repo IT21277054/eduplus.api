@@ -1,25 +1,30 @@
 package com.ds.assignment.model;
 
-
-import jakarta.validation.constraints.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.data.mongodb.core.mapping.FieldType;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
+import java.util.List;
 
-@Document(collection = "users")
+@Document(collection = "learnerprofile")
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
-public class User {
-
+@NoArgsConstructor  
+public class UserProfile {
     @MongoId
     @Field(targetType = FieldType.OBJECT_ID)
     private String id;
+    @Field(targetType = FieldType.OBJECT_ID)
+    private String account_id;
     @NotNull
     @NotEmpty
     private String name;
@@ -30,11 +35,5 @@ public class User {
     @Email(message = "Invalid email address")
     @Pattern(regexp = ".+@.+\\..+",message ="Invalid email address" )
     private String email;
-    @NotNull
-    @NotEmpty
-    @Size(min = 8, max = 20, message = "Password must be between 8 and 20 characters")
-    private String password;
-    private UserRole role = UserRole.LEARNER;
-    private String emailToken;
-
+    private List<EnrolledCourse> courseList;
 }
