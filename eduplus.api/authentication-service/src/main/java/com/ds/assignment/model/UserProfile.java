@@ -18,7 +18,7 @@ import java.util.List;
 @Document(collection = "learnerprofile")
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
+@NoArgsConstructor  
 public class UserProfile {
     @MongoId
     @Field(targetType = FieldType.OBJECT_ID)
