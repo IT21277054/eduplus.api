@@ -1,6 +1,7 @@
 // UnitController.java
 package com.ds.assignment.coursemanagementservice.controller;
 
+import com.ds.assignment.coursemanagementservice.model.Quiz;
 import com.ds.assignment.coursemanagementservice.model.Unit;
 import com.ds.assignment.coursemanagementservice.service.UnitService;
 import org.springframework.http.HttpStatus;
@@ -75,5 +76,10 @@ public class UnitController {
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal server error: " + e.getMessage());
         }
+    }
+
+    @GetMapping("/{courseId}/unit")
+    public List<Unit> getUnitsByCourseId(@PathVariable String courseId) {
+        return unitService.getUnitsByCourseId(courseId);
     }
 }

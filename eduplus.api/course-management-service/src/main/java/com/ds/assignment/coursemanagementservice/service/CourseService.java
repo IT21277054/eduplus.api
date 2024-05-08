@@ -26,7 +26,6 @@ public class CourseService {
 
     public void createCourse(CourseRequest courseRequest) throws IOException {
         String courseId = courseRequest.getCourse_id();
-
         Course course = Course.builder()
                 .course_id(courseId)
                 .instructor_id(courseRequest.getInstructor_id())
@@ -88,7 +87,7 @@ public class CourseService {
             throw new IllegalArgumentException("Image file is null");
         }
 
-        String uploadDir = "C:/Users/Hansani/Desktop/csse_project"; // Change this to your desired upload directory
+        String uploadDir = "C:/Users/IMAKA/Desktop/images"; // Change this to your desired upload directory
         String fileName = UUID.randomUUID().toString() + ".jpg"; // Assuming images are in JPG format
         Path filePath = Path.of(uploadDir, fileName);
         Files.write(filePath, image.getBytes());
