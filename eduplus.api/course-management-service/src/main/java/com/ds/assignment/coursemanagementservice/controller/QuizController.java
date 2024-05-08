@@ -64,4 +64,9 @@ public class QuizController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
         }
     }
+
+    @GetMapping("/{courseId}/quiz")
+    public List<Quiz> getQuizByCourseId(@PathVariable String courseId) {
+        return quizService.getQuizByCourseId(courseId);
+    }
 }

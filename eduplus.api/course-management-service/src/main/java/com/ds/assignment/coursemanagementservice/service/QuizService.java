@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 @Slf4j
@@ -41,5 +43,9 @@ public class QuizService {
     public void deleteQuiz(String quizId) {
         quizRepository.deleteById(quizId);
         log.info("Quiz deleted with ID: {}", quizId);
+    }
+
+    public List<Quiz> getQuizByCourseId(String courseId) {
+        return quizRepository.findByCourseId(courseId);
     }
 }

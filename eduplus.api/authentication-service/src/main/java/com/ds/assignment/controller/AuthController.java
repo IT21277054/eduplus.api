@@ -39,7 +39,8 @@ public class AuthController {
                 String userJson = optionalUser.get();
                 try {
                     JSONObject jsonObject = new JSONObject(userJson);
-                    String id = jsonObject.getString("_id");
+                    JSONObject idObject = jsonObject.getJSONObject("_id");
+                    String id = idObject.getString("$oid");
                     String role = jsonObject.getString("role");
                     return authService.generateToken(id, email, role);
                 } catch (JSONException e) {

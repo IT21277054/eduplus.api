@@ -82,4 +82,8 @@ public class UnitService {
     public void deleteUnit(String unitId) {
         unitRepository.deleteById(unitId);
     }
+
+    public List<Unit> getUnitsByCourseId(String courseId) {
+        return unitRepository.findByCourseId(courseId);
+    }
 }
