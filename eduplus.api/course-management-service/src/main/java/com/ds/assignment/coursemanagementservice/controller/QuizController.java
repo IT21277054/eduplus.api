@@ -66,7 +66,7 @@ public class QuizController {
     }
 
     @GetMapping("/{courseId}/quiz")
-    public List<Quiz> getQuizByCourseId(@PathVariable String courseId) {
+    public Quiz getQuizByCourseId(@PathVariable String courseId) {
         return quizService.getQuizByCourseId(courseId);
     }
 }

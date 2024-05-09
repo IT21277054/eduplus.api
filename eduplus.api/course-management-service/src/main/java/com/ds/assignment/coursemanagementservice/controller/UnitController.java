@@ -79,7 +79,7 @@ public class UnitController {
     }
 
     @GetMapping("/{courseId}/unit")
-    public List<Unit> getUnitsByCourseId(@PathVariable String courseId) {
-        return unitService.getUnitsByCourseId(courseId);
+    public Unit getUnitByCourseId(@PathVariable String courseId) {
+        return unitService.getUnitByCourseId(courseId);
     }
 }
