@@ -12,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
@@ -82,16 +83,22 @@ public class CourseService {
                 .build();
     }
 
+    private static final String BASE_URL = "http://localhost:8085/api/course";
+    private static final String IMAGE_DIRECTORY = "/images";
     private String uploadImage(MultipartFile image) throws IOException {
         if (image == null) {
             throw new IllegalArgumentException("Image file is null");
         }
 
+        // Define the upload directory on the server
         String uploadDir = "C:/Users/IMAKA/Desktop/images"; // Change this to your desired upload directory
         String fileName = UUID.randomUUID().toString() + ".jpg"; // Assuming images are in JPG format
-        Path filePath = Path.of(uploadDir, fileName);
+
+        // Save the image to the specified directory
+        Path filePath = Paths.get(uploadDir, fileName);
         Files.write(filePath, image.getBytes());
 
-        return "https://example.com/images/" + fileName;
+        // Generate the URL for the uploaded image
+        return BASE_URL + IMAGE_DIRECTORY + "/" + fileName;
     }
 }

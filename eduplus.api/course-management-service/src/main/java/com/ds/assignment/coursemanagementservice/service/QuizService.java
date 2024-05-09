@@ -45,7 +45,7 @@ public class QuizService {
         log.info("Quiz deleted with ID: {}", quizId);
     }
 
-    public List<Quiz> getQuizByCourseId(String courseId) {
+    public Quiz getQuizByCourseId(String courseId) {
         return quizRepository.findByCourseId(courseId);
     }
 }

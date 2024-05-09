@@ -83,7 +83,7 @@ public class UnitService {
         unitRepository.deleteById(unitId);
     }
 
-    public List<Unit> getUnitsByCourseId(String courseId) {
+    public Unit getUnitByCourseId(String courseId) {
         return unitRepository.findByCourseId(courseId);
     }
 }
