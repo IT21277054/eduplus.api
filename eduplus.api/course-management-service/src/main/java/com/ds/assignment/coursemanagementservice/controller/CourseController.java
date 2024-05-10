@@ -73,7 +73,7 @@ public class CourseController {
     }
 
     @GetMapping("/status/pending")
-    public List<Course> getPendingCourses(@RequestHeader("loggedInUserRole") String userRole) {
+    public List<Course> getPendingCourses(@RequestHeader(value = "loggedInUserRole") String userRole) {
         System.out.println(userRole);
         if (!Objects.equals(userRole, "ADMIN")) {
             throw new RuntimeException("Access denied");

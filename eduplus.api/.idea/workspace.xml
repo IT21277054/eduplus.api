@@ -4,18 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="701b27a4-39ae-43e9-be1d-97324251f886" name="Changes" comment="admin part of the  backend finished">
-      <change afterPath="$PROJECT_DIR$/learner-service/src/main/java/com/ds/assignment/learnerservice/controller/CartController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/learner-service/src/main/java/com/ds/assignment/learnerservice/model/Cart.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/learner-service/src/main/java/com/ds/assignment/learnerservice/repository/CartRepository.java" afterDir="false" />
+    <list default="true" id="701b27a4-39ae-43e9-be1d-97324251f886" name="Changes" comment="Learner service re initialized">
+      <change afterPath="$PROJECT_DIR$/course-management-service/src/main/java/com/ds/assignment/coursemanagementservice/config/FirebaseConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/course-management-service/src/main/resources/serviceAccountKey.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/com/ds/assignment/filter/RouteValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/ds/assignment/filter/RouteValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authentication-service/src/main/java/com/ds/assignment/service/JwtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/authentication-service/src/main/java/com/ds/assignment/service/JwtService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/learner-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/learner-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/learner-service/src/main/java/com/ds/assignment/learnerservice/LearnerServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/learner-service/src/main/java/com/ds/assignment/learnerservice/LearnerserviceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authentication-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/authentication-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/course-management-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/course-management-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/course-management-service/src/main/java/com/ds/assignment/coursemanagementservice/controller/CourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/course-management-service/src/main/java/com/ds/assignment/coursemanagementservice/controller/CourseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/course-management-service/src/main/java/com/ds/assignment/coursemanagementservice/model/UnitDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/course-management-service/src/main/java/com/ds/assignment/coursemanagementservice/model/UnitDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/course-management-service/src/main/java/com/ds/assignment/coursemanagementservice/service/CourseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/course-management-service/src/main/java/com/ds/assignment/coursemanagementservice/service/CourseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/course-management-service/src/main/java/com/ds/assignment/coursemanagementservice/service/UnitService.java" beforeDir="false" afterPath="$PROJECT_DIR$/course-management-service/src/main/java/com/ds/assignment/coursemanagementservice/service/UnitService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/course-management-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/course-management-service/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/learner-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/learner-service/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/learner-service/src/test/java/com/ds/assignment/learnerservice/LearnerServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/learner-service/src/test/java/com/ds/assignment/learnerservice/LearnerserviceApplicationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,11 +64,12 @@
     "git-widget-placeholder": "feature/authentication",
     "jdk.selected.JAVA_MODULE": "21",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "E:/SLIIT/3rd Year/2nd sem/DS/Assignment/eduplus.api/eduplus.api/learner-service"
+    "last_opened_file_path": "E:/SLIIT/3rd Year/2nd sem/DS/Assignment/eduplus.api/eduplus.api/course-management-service/src/main/resources"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\SLIIT\3rd Year\2nd sem\DS\Assignment\eduplus.api\eduplus.api\course-management-service\src\main\resources" />
       <recent name="E:\SLIIT\3rd Year\2nd sem\DS\Assignment\eduplus.api\eduplus.api\learner-service" />
       <recent name="E:\SLIIT\3rd Year\2nd sem\DS\Assignment\eduplus.api\eduplus.api\user-management" />
     </key>
@@ -79,7 +80,7 @@
       <recent name="com.ds.assignment" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.LearnerserviceApplication">
+  <component name="RunManager" selected="Application.CourseManagementServiceApplication">
     <configuration name="ApiGatewayApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ds.assignment.ApiGatewayApplication" />
       <module name="api-gateway" />
@@ -119,12 +120,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LearnerServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.ds.assignment.learnerservice.LearnerServiceApplication" />
-      <module name="learner-service" />
+    <configuration name="NotificationServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.ds.assignment.notificationservice.NotificationServiceApplication" />
+      <module name="notification-service" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ds.assignment.learnerservice.*" />
+          <option name="PATTERN" value="com.ds.assignment.notificationservice.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -132,12 +133,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LearnerserviceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.ds.assignment.learnerservice.LearnerserviceApplication" />
-      <module name="learner-service" />
+    <configuration name="ServiceRegistryApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.ds.assignment.ServiceRegistryApplication" />
+      <module name="service-registry" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ds.assignment.learnerservice.*" />
+          <option name="PATTERN" value="com.ds.assignment.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -147,11 +148,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.LearnerserviceApplication" />
-        <item itemvalue="Application.LearnerServiceApplication" />
+        <item itemvalue="Application.CourseManagementServiceApplication" />
+        <item itemvalue="Application.NotificationServiceApplication" />
         <item itemvalue="Application.AuthenticationServiceApplication" />
         <item itemvalue="Application.ApiGatewayApplication" />
-        <item itemvalue="Application.CourseManagementServiceApplication" />
+        <item itemvalue="Application.ServiceRegistryApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -187,13 +188,22 @@
       <option name="project" value="LOCAL" />
       <updated>1715281504842</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Learner service re initialized">
+      <option name="closed" value="true" />
+      <created>1715340245323</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1715340245323</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="role based authentication and admin part done" />
     <MESSAGE value="admin part of the  backend finished" />
-    <option name="LAST_COMMIT_MESSAGE" value="admin part of the  backend finished" />
+    <MESSAGE value="Learner service re initialized" />
+    <option name="LAST_COMMIT_MESSAGE" value="Learner service re initialized" />
   </component>
 </project>
