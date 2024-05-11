@@ -4,8 +4,15 @@ import com.ds.assignment.coursemanagementservice.dto.CourseRequest;
 import com.ds.assignment.coursemanagementservice.dto.CourseResponse;
 import com.ds.assignment.coursemanagementservice.model.Course;
 import com.ds.assignment.coursemanagementservice.repository.CourseRepository;
+import com.google.cloud.storage.Blob;
+import com.google.cloud.storage.BlobId;
+import com.google.cloud.storage.BlobInfo;
+import com.google.cloud.storage.Storage;
+import com.mongodb.client.MongoClient;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -25,7 +32,12 @@ import java.util.stream.Collectors;
 public class CourseService {
     private final CourseRepository courseRepository;
 
+    @Autowired
+    private final Storage storage;
+
+
     public void createCourse(CourseRequest courseRequest) throws IOException {
+        System.out.println("here at course creation");
         String courseId = courseRequest.getCourse_id();
         Course course = Course.builder()
                 .course_id(courseId)
@@ -83,22 +95,27 @@ public class CourseService {
                 .build();
     }
 
-    private static final String BASE_URL = "http://localhost:8085/api/course";
-    private static final String IMAGE_DIRECTORY = "/images";
-    private String uploadImage(MultipartFile image) throws IOException {
-        if (image == null) {
-            throw new IllegalArgumentException("Image file is null");
+
+    public String uploadImage(MultipartFile image) throws IOException {
+        if (image == null || image.isEmpty()) {
+            throw new IllegalArgumentException("Image file is null or empty");
         }
 
-        // Define the upload directory on the server
-        String uploadDir = "C:/Users/IMAKA/Desktop/images"; // Change this to your desired upload directory
-        String fileName = UUID.randomUUID().toString() + ".jpg"; // Assuming images are in JPG format
+        String fileName = UUID.randomUUID().toString() + ".png";
+        String bucketName = "eduplus-5bc5e.appspot.com";
 
-        // Save the image to the specified directory
-        Path filePath = Paths.get(uploadDir, fileName);
-        Files.write(filePath, image.getBytes());
-
-        // Generate the URL for the uploaded image
-        return BASE_URL + IMAGE_DIRECTORY + "/" + fileName;
+        try {
+            BlobId blobId = BlobId.of(bucketName, fileName);
+            BlobInfo blobInfo = BlobInfo.newBuilder(blobId)
+                    .setContentType("image/png")
+                    .build();
+            Blob blob = storage.create(blobInfo, image.getBytes());
+            String imageUrl = "https://firebasestorage.googleapis.com/v0/b/" + bucketName + "/o/" + fileName + "?alt=media";;
+            return imageUrl;
+        } catch (Exception e) {
+            log.error("Error uploading image to Cloud Storage", e);
+            throw new IOException("Error uploading image to Cloud Storage", e);
+        }
     }
+
 }
