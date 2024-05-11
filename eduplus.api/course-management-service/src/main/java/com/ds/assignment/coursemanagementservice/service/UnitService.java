@@ -3,7 +3,10 @@ package com.ds.assignment.coursemanagementservice.service;
 import com.ds.assignment.coursemanagementservice.model.Unit;
 import com.ds.assignment.coursemanagementservice.model.UnitDetails;
 import com.ds.assignment.coursemanagementservice.repository.UnitRepository;
+import com.google.cloud.storage.BlobInfo;
+import com.google.cloud.storage.Storage;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -15,6 +18,8 @@ import java.util.*;
 public class UnitService {
     private final UnitRepository unitRepository;
 
+    @Autowired
+    private final Storage storage;
     public Unit uploadUnit(String courseId, List<Integer> unitNumbers, List<String> titles, List<MultipartFile> videos, List<MultipartFile> lectureNotes) throws IOException {
         List<UnitDetails> unitDetailsList = new ArrayList<>();
 
@@ -26,11 +31,13 @@ public class UnitService {
 
             byte[] videoData = video.getBytes();
             byte[] notesData = notes.getBytes(); // Convert MultipartFile to byte[]
+            String videoUrl = uploadFileToStorage(video);
 
             UnitDetails unitDetails = UnitDetails.builder()
                     .unitNumber(unitNumber)
                     .title(title)
                     .video(videoData)
+                    .videoUrl(videoUrl)
                     .lectureNotes(notesData) // Set lecture notes
                     .build();
             unitDetailsList.add(unitDetails);
@@ -85,5 +92,21 @@ public class UnitService {
 
     public Unit getUnitByCourseId(String courseId) {
         return unitRepository.findByCourseId(courseId);
+    }
+
+    private String uploadFileToStorage(MultipartFile file) throws IOException {
+        // Generate a unique filename
+        String fileName = UUID.randomUUID().toString() + "-" + file.getOriginalFilename();
+
+        // Upload file to Firebase Storage
+        BlobInfo blobInfo = storage.create(
+                BlobInfo.newBuilder("eduplus-5bc5e.appspot.com", fileName).build(),
+                file.getInputStream()
+        );
+
+        // Get the download URL of the uploaded file
+        System.out.println("blobInfo.getMediaLink()");
+        String videoUrl = "https://firebasestorage.googleapis.com/v0/b/eduplus-5bc5e.appspot.com/o/" + fileName + "?alt=media";;
+        return videoUrl;
     }
 }

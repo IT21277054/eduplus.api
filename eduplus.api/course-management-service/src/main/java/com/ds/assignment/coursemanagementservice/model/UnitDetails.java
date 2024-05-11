@@ -14,6 +14,7 @@ public class UnitDetails {
     private int unitNumber;
     private String title;
     private byte[] video;
+    private String videoUrl;
     private byte[] lectureNotes;
 
     // Setter and Getter methods
