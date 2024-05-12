@@ -20,23 +20,23 @@ public class UnitService {
 
     @Autowired
     private final Storage storage;
-    public Unit uploadUnit(String courseId, List<Integer> unitNumbers, List<String> titles, List<MultipartFile> videos, List<MultipartFile> lectureNotes) throws IOException {
+    public Unit uploadUnit(String courseId, List<Integer> unitNumbers, List<String> titles, List<String> videoUrls, List<MultipartFile> lectureNotes) throws IOException {
         List<UnitDetails> unitDetailsList = new ArrayList<>();
 
         for (int i = 0; i < unitNumbers.size(); i++) {
             int unitNumber = unitNumbers.get(i);
             String title = titles.get(i);
-            MultipartFile video = videos.get(i);
+            String videoUrl = videoUrls.get(i);
             MultipartFile notes = lectureNotes.get(i); // Get lecture notes
 
-            byte[] videoData = video.getBytes();
+            //byte[] videoData = video.getBytes();
             byte[] notesData = notes.getBytes(); // Convert MultipartFile to byte[]
-            String videoUrl = uploadFileToStorage(video);
+            //String videoUrl = uploadFileToStorage(video);
 
             UnitDetails unitDetails = UnitDetails.builder()
                     .unitNumber(unitNumber)
                     .title(title)
-                    .video(videoData)
+                    //.video(videoData)
                     .videoUrl(videoUrl)
                     .lectureNotes(notesData) // Set lecture notes
                     .build();
@@ -61,7 +61,7 @@ public class UnitService {
                 .orElseThrow(() -> new NoSuchElementException("Unit not found with id: " + unitId));
     }
 
-    public void updateUnit(String unitId, String courseId, Integer unitNumber, String title, MultipartFile video, MultipartFile lectureNotes) throws IOException {
+    public void updateUnit(String unitId, String courseId, Integer unitNumber, String title, String videoUrls, MultipartFile lectureNotes) throws IOException {
         Unit unitToUpdate = unitRepository.findById(unitId)
                 .orElseThrow(() -> new NoSuchElementException("Unit not found with id: " + unitId));
 
@@ -75,8 +75,8 @@ public class UnitService {
         unitToUpdateDetails.setUnitNumber(unitNumber);
         unitToUpdateDetails.setTitle(title);
 
-        if (video != null && !video.isEmpty()) {
-            unitToUpdateDetails.setVideo(video.getBytes());
+        if ( videoUrls!= null && !videoUrls.isEmpty()) {
+            unitToUpdateDetails.setVideoUrl(videoUrls);
         }
 
         if (lectureNotes != null && !lectureNotes.isEmpty()) {

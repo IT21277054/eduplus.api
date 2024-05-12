@@ -1,6 +1,7 @@
 // UnitController.java
 package com.ds.assignment.coursemanagementservice.controller;
 
+import com.ds.assignment.coursemanagementservice.dto.CourseResponse;
 import com.ds.assignment.coursemanagementservice.model.Quiz;
 import com.ds.assignment.coursemanagementservice.model.Unit;
 import com.ds.assignment.coursemanagementservice.service.UnitService;
@@ -25,10 +26,10 @@ public class UnitController {
     public ResponseEntity<String> uploadUnit(@RequestParam("courseId") String courseId,
                                              @RequestParam("unitNumbers") List<Integer> unitNumbers,
                                              @RequestParam("titles") List<String> titles,
-                                             @RequestParam("videos") List<MultipartFile> videos,
+                                             @RequestParam("videoUrl") List<String> videoUrls,
                                              @RequestParam("lectureNotes") List<MultipartFile> lectureNotes) {
         try {
-            unitService.uploadUnit(courseId, unitNumbers, titles, videos, lectureNotes);
+            unitService.uploadUnit(courseId, unitNumbers, titles, videoUrls, lectureNotes);
             return ResponseEntity.ok("Units uploaded successfully");
         } catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
@@ -54,10 +55,10 @@ public class UnitController {
                                              @RequestParam("courseId") String courseId,
                                              @RequestParam("unitNumbers") Integer unitNumbers,
                                              @RequestParam("titles") String titles,
-                                             @RequestParam("videos") MultipartFile videos,
+                                             @RequestParam("videoUrls") String videoUrls,
                                              @RequestParam("lectureNotes") MultipartFile lectureNotes) {
         try {
-            unitService.updateUnit(unitId, courseId , unitNumbers , titles , videos , lectureNotes);
+            unitService.updateUnit(unitId, courseId , unitNumbers , titles , videoUrls , lectureNotes);
             return ResponseEntity.ok("Unit updated successfully");
         } catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
