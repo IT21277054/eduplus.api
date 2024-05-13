@@ -15,7 +15,8 @@ public class RouteValidator {
             "/api/notification/generate",
             "/api/notification/verify",
             "/api/notification/validateEmail",
-            "/api/course/images"
+            "/api/course/images",
+            "/api/auth/user"
     );
 
     public Predicate<ServerHttpRequest> isSecured =

@@ -11,9 +11,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class SmsRequest {
-    @NotNull
-    @NotNull
-    @Pattern(regexp = "\\+\\d{1,3} \\d{9,11}", message = "Invalid phone number format. Should be in the format: '+[country code] [phone number]'")
+//    @NotNull
+//    @Pattern(regexp = "\\+\\d{1,3} \\d{9,11}", message = "Invalid phone number format. Should be in the format: '+[country code] [phone number]'")
     private String phoneNumber;
     @NotNull
     @NotEmpty

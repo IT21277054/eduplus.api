@@ -26,14 +26,17 @@ public class NotificationServiceImpl implements NotificationService {
     private JavaMailSender javaMailSender;
     @Override
     public String sendSms(SmsRequest smsRequest) {
+        System.out.println("here");
         PhoneNumber toPhoneNumber = new PhoneNumber(smsRequest.getPhoneNumber());
         PhoneNumber fromPhoneNumber = new PhoneNumber(twilioConfig.getTrialNumber());
         String textMessage = smsRequest.getMessage();
-
+        System.out.println(toPhoneNumber);
+        System.out.println(fromPhoneNumber);
         try {
             Message message = Message
                     .creator(toPhoneNumber, fromPhoneNumber, textMessage)
                     .create();
+            System.out.println(message);
             if (message != null && message.getSid() != null) {
                 return "message sent";
             } else {
