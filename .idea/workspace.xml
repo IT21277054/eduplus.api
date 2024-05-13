@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="44f8cf81-8226-4e0f-9475-21dd89b84ec5" name="Changes" comment="pull from remote main">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eduplus.api/course-management-service/src/main/java/com/ds/assignment/coursemanagementservice/controller/UnitController.java" beforeDir="false" afterPath="$PROJECT_DIR$/eduplus.api/course-management-service/src/main/java/com/ds/assignment/coursemanagementservice/controller/UnitController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eduplus.api/course-management-service/src/main/java/com/ds/assignment/coursemanagementservice/model/UnitDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/eduplus.api/course-management-service/src/main/java/com/ds/assignment/coursemanagementservice/model/UnitDetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eduplus.api/course-management-service/src/main/java/com/ds/assignment/coursemanagementservice/service/UnitService.java" beforeDir="false" afterPath="$PROJECT_DIR$/eduplus.api/course-management-service/src/main/java/com/ds/assignment/coursemanagementservice/service/UnitService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,8 +137,8 @@
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="pull from main" />
     <MESSAGE value="pull from remote main" />
-    <option name="LAST_COMMIT_MESSAGE" value="pull from remote main" />
+    <MESSAGE value="pull from main" />
+    <option name="LAST_COMMIT_MESSAGE" value="pull from main" />
   </component>
 </project>
