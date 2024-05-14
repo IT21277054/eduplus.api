@@ -23,3 +23,15 @@ EduPlus: Your Ultimate Git Learning Hub. Explore a variety of courses, from begi
 - Spingboot
 - mySql
 - matirial
+
+### Deployment commands
+- in every service directory run, this will create tghe docker image and push it to docker hub
+      ![!TIP] mvn clean package dockerfile:push 
+- run this the see all the images that created
+      ![!TIP] docker images
+- run this in kubernetes directory in each sevice to deploy the docker container
+      ![!TIP] kubectl apply -f ./
+- run this for get the services wich are deployed
+      ![!TIP] kubectl get services
+- run this to map local port to remort port
+      ![!TIP] kubectl port-forward service/<service-name> <local-port>:<remote-port>
