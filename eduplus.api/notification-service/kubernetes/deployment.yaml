@@ -1,0 +1,35 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notification-service-app
+  labels:
+    app: notification-service-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: notification-service-app
+  template:
+    metadata:
+      labels:
+        app: notification-service-app
+    spec:
+      containers:
+        - name: notification-service-app
+          image: kaveeshalk/notification-service:0.0.1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 9898
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: notification-service-svc
+spec:
+  ports:
+    - targetPort: 8081
+      port: 80
+  selector:
+    app: notification-service-app
