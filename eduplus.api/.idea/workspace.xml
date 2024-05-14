@@ -5,16 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="701b27a4-39ae-43e9-be1d-97324251f886" name="Changes" comment="reImplement image and video upload process and update mongodb to atlas">
-      <change afterPath="$PROJECT_DIR$/authentication-service/src/main/java/com/ds/assignment/dto/UserRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api-gateway/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api-gateway/kubernetes/deployment.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/authentication-service/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/authentication-service/kubernetes/deployment.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/course-management-service/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/learner-service/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notification-service/kubernetes/deployment.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/payment-service/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-registry/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-registry/kubernetes/deployment.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/com/ds/assignment/filter/RouteValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/ds/assignment/filter/RouteValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api-gateway/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authentication-service/src/main/java/com/ds/assignment/config/AuthConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/authentication-service/src/main/java/com/ds/assignment/config/AuthConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authentication-service/src/main/java/com/ds/assignment/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/authentication-service/src/main/java/com/ds/assignment/controller/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authentication-service/src/main/java/com/ds/assignment/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/authentication-service/src/main/java/com/ds/assignment/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-service/src/main/java/com/ds/assignment/notificationservice/dto/SmsRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/ds/assignment/notificationservice/dto/SmsRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification-service/src/main/java/com/ds/assignment/notificationservice/service/impl/NotificationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/java/com/ds/assignment/notificationservice/service/impl/NotificationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authentication-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/authentication-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authentication-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/authentication-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/course-management-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/course-management-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/course-management-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/course-management-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/learner-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/learner-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notification-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/notification-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/notification-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/payment-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/payment-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-registry/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-registry/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-registry/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/service-registry/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,8 +162,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.NotificationServiceApplication" />
-        <item itemvalue="Application.AuthenticationServiceApplication" />
         <item itemvalue="Application.CourseManagementServiceApplication" />
+        <item itemvalue="Application.AuthenticationServiceApplication" />
         <item itemvalue="Application.ApiGatewayApplication" />
         <item itemvalue="Application.ServiceRegistryApplication" />
       </list>
